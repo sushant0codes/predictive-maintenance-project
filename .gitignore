@@ -212,6 +212,15 @@ frontend/dist/
 
 # Backend virtual environment
 backend/venv/
+venv/
+env/
 
-chore: ignore frontend node_modules, dist and backend venv
+# OS and editor files
+.DS_Store
+Thumbs.db
 
+# Environment files
+.env
+
+# Notes
+# chore: ignore frontend node_modules, dist and backend venv
