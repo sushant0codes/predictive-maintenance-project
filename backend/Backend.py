@@ -86,8 +86,11 @@ def export_csv():
 
 
 if __name__ == "__main__":
-    app.run(port=5000, host="0.0.0.0", debug=True)
-
-if __name__ == "__main__":
-    from waitress import serve
-    serve(app, host="0.0.0.0", port=5000)
+    import os
+    if os.environ.get("RENDER"):  # Detect if running on Render
+        from waitress import serve
+        print("🚀 Running with Waitress (production mode)")
+        serve(app, host="0.0.0.0", port=5000)
+    else:
+        print("🧪 Running Flask dev server (debug mode)")
+        app.run(port=5000, host="0.0.0.0", debug=True)
